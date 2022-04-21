@@ -1,0 +1,326 @@
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+.side-login,.image-task,nav,.part-tasks,.datetime,.title{
+    display: flex;
+}
+
+.image-task,.part-tasks{
+    justify-content: center;
+    align-items: center;
+}
+
+.side-login{
+    width: 65%;
+    margin: auto;
+    padding: 30px;
+    margin-top: 70px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-image: linear-gradient(to right, #fff , rgb(251, 165, 251));
+    height: 70vh;
+}
+h1{
+    color: purple;
+}
+
+.image-task img{
+    width: 80%;
+}
+
+.login-name{
+    padding: 15px;
+}
+.login-name p{
+    font-size: small;
+    text-align: center;
+}
+.login-name input{
+    padding: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid gray
+}
+.login-name input:focus{
+    outline: 1px solid purple;
+}
+.login-name a{
+    padding: 5px;
+    background: purple;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+.login-name a:hover{
+    background: rgb(171, 2, 171);
+}
+
+nav{
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+nav a{
+    margin: 10px;
+    text-decoration: none;
+    padding: 10px;
+    color: purple;
+}
+
+.active{
+    background: purple;
+    color: #fff;
+}
+#tasks-urgent,#tasks-daily,#tasks-free{
+    width: 33.5%;
+}
+#content-task-urgent,#content-task-daily,#content-task-free{
+    overflow: scroll;
+    height: 62.5vh;
+    padding: 10px;
+    overflow-x: hidden;
+}
+
+h4,h3{
+    text-align: center;
+    margin: 10px;
+    padding: 2px;
+}
+h3,.fa-check-square{
+    color: green;
+}
+
+.fa-trash-o,.fa-check-square{
+    cursor: pointer;
+}
+
+.title p:hover,.datetime span:hover{
+    text-decoration: underline blue;
+    cursor: pointer;
+}
+.title p,.datetime span{
+    color: blue;
+}
+
+.title .title-done,.datetime .date-done,.datetime .time-done{
+    color: green;
+}
+.title .title-done:hover,.datetime .date-done:hover,.datetime .time-done:hover{
+    text-decoration: none;
+    cursor: default;
+}
+
+#form-delete-urgent p,#form-delete-daily p,#form-delete-free p{
+   text-align: center;
+}
+
+
+.task{
+    padding: 2px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+#urgent,#daily,#free{
+    text-align: center;
+}
+#urgent,.fa-trash-o{
+    color: red;
+}
+#daily{
+    color: purple;
+}
+#free{
+    color: blue;
+}
+
+.datetime,.title{
+    justify-content: space-between;
+    margin: 0 10px;
+}
+.datetime span{
+    font-size: small;
+}
+
+.title-task #btn-urgent,#btn-daily,#btn-free{
+    margin-left:20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+#btn-urgent{
+    background: red;
+    color: #fff;
+}
+#btn-urgent:hover{
+    background: rgb(152, 1, 1);
+}
+#btn-daily{
+    background: rgb(172, 1, 172);
+    color: #fff;
+}
+#btn-daily:hover{
+    background: rgb(105, 1, 105);
+}
+#btn-free{
+    background: blue;
+    color: #fff;
+}
+
+#btn-free:hover,#okey-urgent:hover,#okey-daily:hover,#okey-free:hover{
+    background: rgb(1, 1, 154);
+}
+
+
+
+
+#task-dialog-urgent,#task-dialog-daily,#task-dialog-free,#form-delete-urgent,#form-delete-daily,#form-delete-free{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+  
+}
+
+
+dialog {
+    position: fixed;
+    top: 20vh;
+    left: 25%;
+    width: 50%;
+    z-index: 100;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding:0px;
+    margin: 0;
+    overflow: hidden;
+}
+
+#form-delete-urgent dialog,#form-delete-daily dialog,#form-delete-free dialog{
+    top: 40vh;
+}
+
+section input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+#task-dialog-urgent section input:focus{
+    outline: 1px solid red;
+    border-radius: 5px;
+}
+
+#task-dialog-daily section input:focus{
+    outline: 1px solid purple;
+    border-radius: 5px;
+}
+
+#task-dialog-free section input:focus{
+    outline: 1px solid blue;
+}
+
+#task-dialog-urgent dialog header,#task-dialog-daily dialog header,#task-dialog-free dialog header{
+    width: 100%;
+    padding: 15px;
+    color: #fff;
+    font-size: large;
+}
+
+#task-dialog-urgent dialog header{
+    background: red;
+}
+#task-dialog-daily dialog header{
+    background: purple;
+}
+#task-dialog-free dialog header,#okey-urgent,#okey-daily,#okey-free{
+    background: blue;
+}
+
+section,.btn-action {
+    padding: 15px;
+}
+
+.btn-action {
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-action button{
+    margin: 10px;
+    padding: 7px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#cancel-urgent,#cancel-daily,#cancel-free{
+    background: red;
+}
+#cancel-urgent:hover,#cancel-daily:hover,#cancel-free:hover{
+    background: rgb(253, 87, 87);
+}
+#create-daily{
+    background: purple;
+}
+#create-daily:hover{
+    background: rgb(180, 2, 180);
+}
+#create-urgent{
+    background: green;
+}
+#create-urgent:hover{
+    background: rgb(0, 164, 0);
+}
+#create-free{
+    background: blue;
+}
+#create-free:hover{
+    background: rgb(2, 2, 227);
+}
+
+
+
+
+/* responsive */
+
+@media only screen and (max-width:870px){
+    .part-tasks{
+        flex-wrap: wrap;
+    }
+    #tasks-urgent,#tasks-daily,#tasks-free{
+        width: 100%;
+    }
+    dialog {
+        width: 80%;
+        left: 10%;
+        top: 40vh;
+    }
+    #task-dialog-urgent dialog,#task-dialog-daily dialog,#task-dialog-free dialog{
+        top: 20vh;
+    }
+
+    nav{
+        position: sticky;
+        top: 0;
+        background: #fff;
+    }
+    .side-login{
+        width: 90%;
+    }
+}
